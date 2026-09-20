@@ -19,7 +19,10 @@ body {
   font-family: Inter, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.4;
+    position: relative;
+  z-index: 0;
 }
+
 
 img {
   display: block;
@@ -37,15 +40,48 @@ a {
 ========================================== */
 
 .site-header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   padding: 20px 24px;
+
+  z-index: 1000;
+
+  background: transparent;
+
+  color: #111;
+
+  transition:
+    color 0.25s ease;
 }
 
-.name {
+
+/* Avery stays red at all times */
+
+.site-header .name {
+  color: #ff0000;
   font-weight: 600;
+}
+
+
+/* Menu becomes white in case study */
+
+body.case-dark .site-header {
+  color: #fff;
+}
+
+
+/* Avery STILL stays red */
+
+body.case-dark .site-header .name {
   color: #ff0000;
 }
 
@@ -147,7 +183,7 @@ nav a:hover {
 ========================================== */
 
 .skills {
-  padding: 40px 24px 120px;
+  padding: 20px 24px 40px;
 }
 
 .skills-grid {
@@ -502,6 +538,1210 @@ footer {
   opacity: 0.5;
 }
 
+/* ==========================================
+   CASE STUDY
+========================================== */
+
+.case-study {
+  width: 100%;
+
+  background: #f5f5f2;
+  color: #111;
+
+  transition:
+    background-color 0.6s ease,
+    color 0.6s ease;
+}
+
+
+/* ==========================================
+   CASE HERO
+========================================== */
+
+.case-hero {
+  padding:
+    60px
+    24px
+    40px;
+}
+
+
+/* PROJECT NUMBER */
+
+.case-number {
+  margin-bottom: 12px;
+
+  font-size: 0.68rem;
+  font-weight: 500;
+
+  line-height: 1;
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+
+  opacity: 0.45;
+}
+
+
+/* PROJECT TITLE */
+
+.case-hero h1 {
+  max-width: 850px;
+
+  font-size: clamp(
+    2rem,
+    3.4vw,
+    3.8rem
+  );
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* ==========================================
+   METADATA BAND
+========================================== */
+
+.case-meta {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1.6fr
+    1.4fr
+    0.5fr;
+
+  margin:
+    0
+    24px;
+
+  border-top:
+    1px solid currentColor;
+
+  border-bottom:
+    1px solid currentColor;
+}
+
+
+/* INDIVIDUAL METADATA CELL */
+
+.case-meta-item {
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 8px;
+
+  min-width: 0;
+
+  padding:
+    7px
+    12px
+    7px
+    0;
+
+  font-size: 0.68rem;
+
+  line-height: 1.2;
+}
+
+
+/* METADATA DIVIDERS */
+
+.case-meta-item + .case-meta-item {
+  padding-left: 12px;
+
+  border-left:
+    1px solid currentColor;
+}
+
+
+/* METADATA LABEL */
+
+.case-meta-label {
+  flex-shrink: 0;
+
+  margin: 0;
+
+  font-size: 0.56rem;
+  font-weight: 500;
+
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+
+  opacity: 0.4;
+}
+
+
+/* ==========================================
+   SCROLL CUE
+========================================== */
+
+.case-scroll-cue {
+  height: calc(100vh - 300px);
+
+  min-height: 280px;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: center;
+
+  padding-bottom: 40px;
+}
+
+
+/* ARROW */
+
+.case-scroll-cue span {
+  display: block;
+
+  font-size: 2rem;
+  font-weight: 300;
+
+  line-height: 1;
+
+  animation:
+    case-arrow 1.8s
+    ease-in-out
+    infinite;
+}
+
+
+/* ARROW MOVEMENT */
+
+@keyframes case-arrow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+
+}
+
+
+/* ==========================================
+   CASE BODY
+========================================== */
+
+.case-body {
+  display: grid;
+
+  grid-template-columns:
+    minmax(220px, 1fr)
+    minmax(0, 3fr);
+
+  gap: 24px;
+
+  align-items: stretch;
+
+  padding:
+    100px
+    24px
+    120px;
+
+  background: transparent;
+  color: inherit;
+}
+
+
+/* ==========================================
+   LEFT STORY COLUMN
+========================================== */
+
+.case-story {
+  position: relative;
+
+  min-width: 0;
+}
+
+
+/* ==========================================
+   STICKY STORY AREA
+========================================== */
+
+.case-story-sticky {
+  position: sticky;
+
+  top: 0;
+
+  height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+}
+
+
+/* ==========================================
+   STORY CARDS
+========================================== */
+
+.story-card {
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  width: 100%;
+  max-width: 320px;
+
+  padding-right: 30px;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(
+      calc(-50% + 18px)
+    );
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    visibility 0.35s ease;
+
+  pointer-events: none;
+}
+
+
+/* ACTIVE STORY */
+
+.story-card.is-active {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateY(-50%);
+
+  pointer-events: auto;
+}
+
+
+/* STORY NUMBER */
+
+.story-number {
+  margin-bottom: 36px;
+
+  font-size: 0.65rem;
+  font-weight: 500;
+
+  line-height: 1;
+
+  opacity: 0.35;
+}
+
+
+/* STORY HEADING */
+
+.story-card h2 {
+  margin-bottom: 16px;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.025em;
+}
+
+
+/* STORY TEXT */
+
+.story-card p {
+  max-width: 290px;
+
+  font-size: 0.88rem;
+
+  line-height: 1.45;
+}
+
+
+/* PARAGRAPH SPACING */
+
+.story-card p + p {
+  margin-top: 14px;
+}
+
+
+/* ==========================================
+   RIGHT — CONTINUOUS MEDIA STREAM
+========================================== */
+
+.case-media-stream {
+  width: 100%;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #111;
+}
+
+
+/* ==========================================
+   MEDIA ZONES
+========================================== */
+
+.media-zone {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+/*
+  IMPORTANT:
+
+  There are deliberately no margins,
+  gaps, borders or padding between
+  media zones.
+
+  This keeps the entire right column
+  visually continuous.
+*/
+
+
+/* ==========================================
+   MEDIA FIGURES
+========================================== */
+
+.case-image,
+.case-video {
+  display: block;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  background: transparent;
+}
+
+
+/* ==========================================
+   IMAGES
+========================================== */
+
+.case-image img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+
+  object-fit: cover;
+}
+
+
+/* ==========================================
+   VIDEO
+========================================== */
+
+.case-video video {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+
+  object-fit: cover;
+}
+
+
+/* ==========================================
+   WHOLE-PAGE THEME TRANSITION
+========================================== */
+
+html {
+  background: #f5f5f2;
+}
+
+
+body {
+  background: #f5f5f2;
+  color: #111;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+.case-study {
+  background: transparent;
+  color: inherit;
+}
+
+
+body.case-dark {
+  background: #111;
+  color: #f5f5f2;
+}
+
+
+body.case-dark .case-study {
+  background: transparent;
+  color: inherit;
+}
+
+
+/* Dividers follow the current theme */
+
+.case-meta,
+.next-project,
+footer {
+  border-color: currentColor;
+}
+
+
+/* ==========================================
+   HEADER THEME TRANSITION
+========================================== */
+
+.site-header {
+  transition:
+    background-color 0.6s ease,
+    color 0.6s ease;
+}
+
+
+/* DARK HEADER */
+
+body.case-dark .site-header {
+  background: #111;
+
+  color: #f5f5f2;
+}
+
+
+/*
+  KEEP THE NAME RED.
+
+  This deliberately overrides the
+  inherited white header colour.
+*/
+
+body.case-dark .site-header .name {
+  color: #ff0000;
+}
+
+/* ==========================================
+   THEME GRADIENT WASH
+========================================== */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5f5f2 0%,
+      #f5f5f2 40%,
+      #111 60%,
+      #111 100%
+    );
+
+  background-size: 300% 300%;
+
+  background-position: 0% 0%;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.15s ease,
+    background-position 0.35s ease;
+}
+
+
+body.case-transition::before {
+  opacity: 1;
+
+  background-position: 100% 100%;
+}
+
+/* ==========================================
+   NEXT PROJECT
+========================================== */
+
+.next-project {
+  display: block;
+
+  margin:
+    0
+    24px;
+
+  padding:
+    70px
+    0
+    100px;
+
+  border-top:
+    1px solid currentColor;
+
+  transition:
+    opacity 0.2s ease;
+}
+
+
+/* NEXT LABEL */
+
+.next-project-label {
+  margin-bottom: 20px;
+
+  font-size: 0.68rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.04em;
+
+  opacity: 0.45;
+}
+
+
+/* NEXT PROJECT TITLE */
+
+.next-project h2 {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: baseline;
+
+  gap: 30px;
+
+  font-size: clamp(
+    2rem,
+    4vw,
+    4.5rem
+  );
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+
+.next-project h2 span {
+  font-weight: 300;
+}
+
+
+.next-project:hover {
+  opacity: 0.5;
+}
+
+
+/* ==========================================
+   DARK NEXT PROJECT
+========================================== */
+
+body.case-dark .next-project {
+  color: #f5f5f2;
+
+  border-color: #f5f5f2;
+}
+
+
+/* ==========================================
+   FOOTER THEME
+========================================== */
+
+footer {
+  transition:
+    background-color 0.6s ease,
+    color 0.6s ease,
+    border-color 0.6s ease;
+}
+
+
+body.case-dark footer {
+  background: #111;
+
+  color: #f5f5f2;
+
+  border-color: #f5f5f2;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+  .case-body {
+    grid-template-columns:
+      minmax(190px, 1fr)
+      minmax(0, 2.4fr);
+
+    gap: 20px;
+  }
+
+
+  .story-card {
+    padding-right: 20px;
+  }
+
+
+  .story-card p {
+    font-size: 0.82rem;
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+
+  /* ========================================
+     HERO
+  ======================================== */
+
+  .case-hero {
+    padding:
+      35px
+      16px
+      30px;
+  }
+
+
+  .case-number {
+    margin-bottom: 10px;
+
+    font-size: 0.62rem;
+  }
+
+
+  .case-hero h1 {
+    max-width: 100%;
+
+    font-size: 2rem;
+
+    line-height: 1;
+
+    letter-spacing: -0.035em;
+  }
+
+
+  /* ========================================
+     METADATA
+  ======================================== */
+
+  .case-meta {
+    grid-template-columns:
+      1fr
+      1fr;
+
+    margin:
+      0
+      16px;
+  }
+
+
+  .case-meta-item {
+    min-height: 48px;
+
+    display: block;
+
+    padding:
+      7px
+      10px
+      7px
+      0;
+
+    font-size: 0.64rem;
+  }
+
+
+  .case-meta-item + .case-meta-item {
+    padding-left: 10px;
+  }
+
+
+  /*
+    Third metadata item begins
+    the second row.
+  */
+
+  .case-meta-item:nth-child(3) {
+    padding-left: 0;
+
+    border-left: 0;
+  }
+
+
+  /*
+    Horizontal divider between
+    metadata rows.
+  */
+
+  .case-meta-item:nth-child(3),
+  .case-meta-item:nth-child(4) {
+    border-top:
+      1px solid currentColor;
+  }
+
+
+  .case-meta-label {
+    margin-bottom: 6px;
+
+    font-size: 0.52rem;
+  }
+
+
+  /* ========================================
+     SCROLL CUE
+  ======================================== */
+
+  .case-scroll-cue {
+    height: calc(100vh - 300px);
+
+    min-height: 240px;
+
+    padding-bottom: 30px;
+  }
+
+
+  .case-scroll-cue span {
+    font-size: 1.7rem;
+  }
+
+
+  /* ========================================
+     CASE BODY
+  ======================================== */
+
+  .case-body {
+    display: block;
+
+    padding:
+      0
+      16px
+      80px;
+  }
+
+
+  /* ========================================
+     MOBILE STORY
+  ======================================== */
+
+  .case-story {
+    position: relative;
+
+    min-height: 200px;
+
+    background: #111;
+
+    color: #f5f5f2;
+
+    z-index: 20;
+  }
+
+
+  .case-story-sticky {
+    position: sticky;
+
+    top: 0;
+
+    height: 200px;
+
+    display: block;
+
+    overflow: hidden;
+
+    background: #111;
+
+    color: #f5f5f2;
+  }
+
+
+  .story-card {
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    max-width: 100%;
+
+    padding-right: 0;
+
+    transform:
+      translateY(
+        calc(-50% + 12px)
+      );
+  }
+
+
+  .story-card.is-active {
+    transform:
+      translateY(-50%);
+  }
+
+
+  .story-number {
+    margin-bottom: 18px;
+  }
+
+
+  .story-card h2 {
+    margin-bottom: 10px;
+
+    font-size: 1.2rem;
+  }
+
+
+  .story-card p {
+    max-width: 500px;
+
+    font-size: 0.82rem;
+  }
+
+
+  .story-card p + p {
+    margin-top: 10px;
+  }
+
+
+  /* ========================================
+     MEDIA STREAM
+  ======================================== */
+
+  .case-media-stream {
+  width: 100%;
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: transparent;
+}
+
+
+  /* ========================================
+     NEXT PROJECT
+  ======================================== */
+
+  .next-project {
+    margin:
+      0
+      16px;
+
+    padding:
+      60px
+      0
+      80px;
+  }
+
+
+  .next-project h2 {
+    font-size: 2rem;
+  }
+
+}
+
+/* ==========================================
+   ACTIVE CASE STUDY THEME
+========================================== */
+
+body {
+  transition:
+    background-color 0.65s ease,
+    color 0.65s ease;
+}
+
+body.case-dark {
+  background: #111;
+  color: #f5f5f2;
+}
+
+
+/*
+  Once the dark section is active,
+  keep the remainder of the case
+  study black.
+*/
+
+body.case-dark .case-study {
+  background: #111;
+  color: #f5f5f2;
+}
+
+
+/*
+  Dividers automatically inherit
+  the current text colour.
+*/
+
+body.case-dark footer {
+  border-color: #f5f5f2;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+
+  /* ========================================
+     CASE STUDY
+  ======================================== */
+
+ .case-study {
+  padding-top: 70px;
+}
+
+
+  /* ========================================
+     HERO
+  ======================================== */
+
+  .case-hero {
+    padding:
+      30px
+      16px
+      35px;
+  }
+
+
+  .case-number {
+    margin-bottom: 10px;
+
+    font-size: 0.62rem;
+  }
+
+
+  .case-hero h1 {
+    max-width: 100%;
+
+    font-size: 2rem;
+
+    line-height: 1;
+
+    letter-spacing: -0.035em;
+  }
+
+
+  /* ========================================
+     METADATA
+  ======================================== */
+
+  .case-meta {
+    grid-template-columns:
+      1fr
+      1fr;
+
+    margin:
+      0
+      16px;
+  }
+
+
+  .case-meta-item {
+    min-height: 52px;
+
+    display: block;
+
+    padding:
+      8px
+      10px
+      8px
+      0;
+
+    font-size: 0.64rem;
+  }
+
+
+  .case-meta-item + .case-meta-item {
+    padding-left: 10px;
+  }
+
+
+  /*
+    Third cell starts a new row,
+    so remove its left divider.
+  */
+
+  .case-meta-item:nth-child(3) {
+    padding-left: 0;
+
+    border-left: 0;
+  }
+
+
+  /*
+    Horizontal divider between
+    metadata rows.
+  */
+
+  .case-meta-item:nth-child(3),
+  .case-meta-item:nth-child(4) {
+    border-top:
+      1px solid #111;
+  }
+
+
+  .case-meta-label {
+    margin-bottom: 7px;
+
+    font-size: 0.54rem;
+  }
+
+
+  /* ========================================
+     CASE BODY
+  ======================================== */
+
+  .case-body {
+    display: block;
+
+    padding:
+      60px
+      16px
+      80px;
+  }
+
+
+  /* ========================================
+     STORY
+  ======================================== */
+
+  .case-story {
+    min-height: 180px;
+  }
+
+
+  .case-story-sticky {
+    position: sticky;
+
+    top: 0;
+
+    height: auto;
+
+    min-height: 180px;
+
+    display: block;
+
+    padding:
+      30px
+      0;
+
+    background: #f5f5f2;
+
+    z-index: 20;
+  }
+
+
+  .story-card {
+    position: absolute;
+
+    top: 30px;
+    left: 0;
+
+    max-width: 100%;
+
+    padding-right: 0;
+
+    transform:
+      translateY(10px);
+  }
+
+
+  .story-card.is-active {
+    transform:
+      translateY(0);
+  }
+
+
+  .story-number {
+    margin-bottom: 20px;
+  }
+
+
+  .story-card h2 {
+    margin-bottom: 12px;
+
+    font-size: 1.2rem;
+  }
+
+
+  .story-card p {
+    max-width: 500px;
+
+    font-size: 0.82rem;
+  }
+
+
+  .story-card p + p {
+    margin-top: 10px;
+  }
+
+
+  /* ========================================
+     MEDIA STREAM
+  ======================================== */
+
+  .case-media-stream {
+    width: 100%;
+  }
+
+
+  /* ========================================
+     NEXT PROJECT
+  ======================================== */
+
+  .next-project {
+    margin:
+      0
+      16px;
+
+    padding:
+      60px
+      0
+      80px;
+  }
+
+
+  .next-project h2 {
+    font-size: 2rem;
+  }
+
+}
 
 /* ==========================================
    MOBILE
