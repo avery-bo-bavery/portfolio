@@ -249,5 +249,20 @@
 
   </footer>
 
+<script>
+  document.querySelectorAll(".image-compare").forEach(compare => {
+
+    const slider = compare.querySelector(".compare-slider");
+
+    slider.addEventListener("input", () => {
+      compare.style.setProperty(
+        "--position",
+        slider.value + "%"
+      );
+    });
+
+  });
+</script>
+  
 </body>
 </html>
