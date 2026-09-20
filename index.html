@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -10,28 +9,19 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>
-    Project One — Avery Mitchell
-  </title>
+  <title>Avery Mitchell — Design & Creative Technology</title>
 
   <meta
     name="description"
-    content="Scripting for Adobe map optimisation using AI — a case study by Avery Mitchell."
+    content="Portfolio of Avery Mitchell — graphic design, motion, systems design and creative technology."
   >
 
   <link rel="stylesheet" href="style.css">
-
-  <link
-    rel="icon"
-    type="image/png"
-    href="/favicon-2.png"
-  >
-
+  <link rel="icon" type="image/png" href="/favicon-2.png">
 </head>
 
 
-<body class="case-page">
-
+<body>
 
   <!-- ========================================
        HEADER
@@ -39,450 +29,453 @@
 
   <header class="site-header">
 
-    <a class="name" href="index.html">
+    <a class="name" href="/">
       Avery Mitchell
     </a>
 
     <nav>
-
-      <a href="index.html#work">
-        Work
-      </a>
-
-      <a href="index.html#about">
-        About
-      </a>
-
-      <a href="mailto:hello@example.com">
-        Email
-      </a>
-
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="mailto:hello@example.com">Email</a>
     </nav>
 
   </header>
 
 
+  <main>
 
-  <!-- ========================================
-       CASE STUDY
-  ========================================= -->
+    <!-- ========================================
+         INTRO
+    ========================================= -->
 
-  <main class="case-study">
+    <section class="intro">
 
-
-    <!-- ======================================
-         INTRO SCREEN
-    ======================================= -->
-
-    <section class="case-intro">
-
-
-      <!-- PROJECT TITLE -->
-
-      <header class="case-hero">
-
-        <p class="case-number">
-          Project 01
-        </p>
-
-        <h1>
-          Scripting for Adobe map optimisation using AI
-        </h1>
-
-      </header>
-
-
-
-      <!-- ====================================
-           METADATA
-      ===================================== -->
-
-      <section class="case-meta">
-
-
-        <div class="case-meta-item">
-
-          <span class="case-meta-label">
-            Role
-          </span>
-
-          <span>
-            Designer
-          </span>
-
-        </div>
-
-
-        <div class="case-meta-item">
-
-          <span class="case-meta-label">
-            Discipline
-          </span>
-
-          <span>
-            Systems Design · Creative Technology
-          </span>
-
-        </div>
-
-
-        <div class="case-meta-item">
-
-          <span class="case-meta-label">
-            Tools
-          </span>
-
-          <span>
-            Illustrator · AI · Scripting
-          </span>
-
-        </div>
-
-
-        <div class="case-meta-item">
-
-          <span class="case-meta-label">
-            Year
-          </span>
-
-          <span>
-            2025
-          </span>
-
-        </div>
-
-
-      </section>
-
-
-
-      <!-- ====================================
-           SCROLL CUE
-      ===================================== -->
-
-      <div
-        class="case-scroll-cue"
-        aria-hidden="true"
-      >
-
-        <span>
-          ↓
-        </span>
-
-      </div>
-
+      <h1>
+        I design systems<br>
+        that make complex things<br>
+        <span class="clarity">clear.</span>
+      </h1>
 
     </section>
 
 
+    
+
 
     <!-- ========================================
-         CASE BODY
+         SELECTED WORK
     ========================================= -->
 
-    <section class="case-body">
+    <section class="work" id="work">
+
+      <div class="section-heading">
+        <p>Selected Work</p>
+        <p>2024–26</p>
+      </div>
 
 
       <!-- ======================================
-           LEFT — STICKY NARRATIVE
+           PROJECT 01
       ======================================= -->
 
-      <aside class="case-story">
+      <article class="project">
 
-        <div class="case-story-sticky">
+        <div class="image-compare">
+
+          <!-- BEFORE / LEFT -->
+
+          <div class="compare-before">
+
+            <img
+              class="compare-image"
+              src="images/project-01-a.jpg"
+              alt="Project One — before"
+            >
+
+        
+
+          </div>
 
 
-          <!-- CONTEXT -->
+          <!-- AFTER / RIGHT -->
 
-          <article
-            class="story-card is-active"
-            data-story="context"
+          <div class="compare-after">
+
+            <img
+              class="compare-image"
+              src="images/project-01-b.jpg"
+              alt="Project One — after"
+            >
+
+            
+
+          </div>
+
+
+          <!-- DIVIDER -->
+
+          <div class="compare-divider">
+
+            <div class="compare-handle">
+              ↔
+            </div>
+
+          </div>
+
+
+          <!-- SLIDER -->
+
+          <input
+            class="compare-slider"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            aria-label="Compare Project One before and after"
           >
-
-            <p class="story-number">
-              01
-            </p>
-
-            <h2>
-              Context
-            </h2>
-
-            <p>
-              Introduce the project here. Explain what you were
-              working on, who it was for and why the work existed.
-            </p>
-
-            <p>
-              This is a good place to establish the wider context
-              before explaining the specific problem you identified.
-            </p>
-
-          </article>
-
-
-
-          <!-- PROBLEM -->
-
-          <article
-            class="story-card"
-            data-story="problem"
-          >
-
-            <p class="story-number">
-              02
-            </p>
-
-            <h2>
-              The problem
-            </h2>
-
-            <p>
-              Describe the complexity in the existing process.
-              Explain what was repetitive, inefficient or difficult
-              about the way the work was previously being done.
-            </p>
-
-            <p>
-              Focus on the problem before moving into the solution.
-            </p>
-
-          </article>
-
-
-
-          <!-- APPROACH -->
-
-          <article
-            class="story-card"
-            data-story="approach"
-          >
-
-            <p class="story-number">
-              03
-            </p>
-
-            <h2>
-              The approach
-            </h2>
-
-            <p>
-              Explain the intervention here. Describe the decisions,
-              experiments and technical thinking that shaped the
-              solution.
-            </p>
-
-            <p>
-              This can cover scripting, prototyping, iteration and
-              how AI became part of the workflow.
-            </p>
-
-          </article>
-
-
-
-          <!-- OUTCOME -->
-
-          <article
-            class="story-card"
-            data-story="outcome"
-          >
-
-            <p class="story-number">
-              04
-            </p>
-
-            <h2>
-              Outcome
-            </h2>
-
-            <p>
-              Explain what changed as a result of the project.
-              Include improvements to the workflow, time saved,
-              consistency gained or other measurable outcomes.
-            </p>
-
-            <p>
-              You can also reflect briefly on what you learned from
-              the process.
-            </p>
-
-          </article>
-
 
         </div>
 
-      </aside>
 
+        <a class="project-info" href="project-01.html">
+
+          <h2>Project One: <span class="subhead">Scripting for Adobe map optimisation using AI</span></h2>
+
+          <p>
+            Systems Design · Creative Technology · 2025
+          </p>
+
+        </a>
+
+      </article>
 
 
       <!-- ======================================
-           RIGHT — CONTINUOUS MEDIA
+           PROJECT 02
       ======================================= -->
 
-      <div class="case-media-stream">
+      <article class="project">
 
+        <div class="image-compare">
 
-        <!-- ====================================
-             01 — CONTEXT
-        ===================================== -->
+          <!-- BEFORE / LEFT -->
 
-        <section
-          class="media-zone"
-          data-zone="context"
-        >
-
-          <figure class="case-image">
+          <div class="compare-before">
 
             <img
-              src="images/project-01-1.jpg"
-              alt="Project One context"
+              class="compare-image"
+              src="images/project-02-a.jpg"
+              alt="Project Two — before"
             >
 
-          </figure>
+            
+
+          </div>
 
 
-          <figure class="case-image">
+          <!-- AFTER / RIGHT -->
+
+          <div class="compare-after">
 
             <img
-              src="images/project-01-2.jpg"
-              alt="Project One detail"
+              class="compare-image"
+              src="images/project-02-b.jpg"
+              alt="Project Two — after"
             >
 
-          </figure>
+            
 
-        </section>
+          </div>
 
 
+          <!-- DIVIDER -->
 
-        <!-- ====================================
-             02 — PROBLEM
-        ===================================== -->
+          <div class="compare-divider">
 
-        <section
-          class="media-zone"
-          data-zone="problem"
-        >
+            <div class="compare-handle">
+              ↔
+            </div>
 
-          <figure class="case-image">
+          </div>
+
+
+          <!-- SLIDER -->
+
+          <input
+            class="compare-slider"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            aria-label="Compare Project Two before and after"
+          >
+
+        </div>
+
+
+        <a class="project-info" href="#">
+
+          <h2>Project Two: <span class="subhead">Turbocharging digital ad potential with 3D modelling and motion</span></h2>
+
+          <p>
+            Identity · Motion · 2026 
+          </p>
+
+        </a>
+
+      </article>
+
+
+      <!-- ======================================
+           PROJECT 03
+      ======================================= -->
+
+      <article class="project">
+
+        <div class="image-compare">
+
+          <!-- BEFORE / LEFT -->
+
+          <div class="compare-before">
 
             <img
-              src="images/project-01-3.jpg"
-              alt="Existing map production workflow"
+              class="compare-image"
+              src="images/project-03-a.jpg"
+              alt="Project Three — before"
             >
 
-          </figure>
+            
+
+          </div>
 
 
-          <figure class="case-image">
+          <!-- AFTER / RIGHT -->
+
+          <div class="compare-after">
 
             <img
-              src="images/project-01-4.jpg"
-              alt="Existing workflow detail"
+              class="compare-image"
+              src="images/project-03-b.jpg"
+              alt="Project Three — after"
             >
 
-          </figure>
+            
 
-        </section>
+          </div>
 
 
+          <!-- DIVIDER -->
 
-        <!-- ====================================
-             03 — APPROACH
-        ===================================== -->
+          <div class="compare-divider">
 
-        <section
-          class="media-zone"
-          data-zone="approach"
-        >
+            <div class="compare-handle">
+              ↔
+            </div>
 
-          <figure class="case-image">
+          </div>
+
+
+          <!-- SLIDER -->
+
+          <input
+            class="compare-slider"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            aria-label="Compare Project Three before and after"
+          >
+
+        </div>
+
+
+        <a class="project-info" href="#">
+
+          <h2>Project Three: <span class="subhead">Defining app requirements and prototyping with Figma</span></h2>
+
+          <p>
+            Prototyping · Digital design · 2025
+          </p>
+
+        </a>
+
+      </article>
+
+
+      <!-- ======================================
+           PROJECT 04
+      ======================================= -->
+
+      <article class="project">
+
+        <div class="image-compare">
+
+          <!-- BEFORE / LEFT -->
+
+          <div class="compare-before">
 
             <img
-              src="images/project-01-5.jpg"
-              alt="Development process"
+              class="compare-image"
+              src="images/project-04-a.jpg"
+              alt="Project Four — before"
             >
 
-          </figure>
+            
+
+          </div>
 
 
-          <figure class="case-image">
+          <!-- AFTER / RIGHT -->
+
+          <div class="compare-after">
 
             <img
-              src="images/project-01-6.jpg"
-              alt="Development process detail"
+              class="compare-image"
+              src="images/project-04-b.jpg"
+              alt="Project Four — after"
             >
 
-          </figure>
+            
 
-        </section>
-
-
-
-        <!-- ====================================
-             04 — OUTCOME
-        ===================================== -->
-
-        <section
-          class="media-zone"
-          data-zone="outcome"
-        >
-
-          <figure class="case-image">
-
-            <img
-              src="images/project-01-7.jpg"
-              alt="Final project outcome"
-            >
-
-          </figure>
+          </div>
 
 
-          <figure class="case-image">
+          <!-- DIVIDER -->
 
-            <img
-              src="images/project-01-8.jpg"
-              alt="Final project detail"
-            >
+          <div class="compare-divider">
 
-          </figure>
+            <div class="compare-handle">
+              ↔
+            </div>
 
-        </section>
+          </div>
 
+
+          <!-- SLIDER -->
+
+          <input
+            class="compare-slider"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            aria-label="Compare Project Four before and after"
+          >
+
+        </div>
+
+
+        <a class="project-info" href="#">
+
+          <h2>Project Four: <span class="subhead">Leading the change to new production systems</span></h2>
+
+          <p>
+            Motion · Experimental · 2024
+          </p>
+
+        </a>
+
+      </article>
+
+    </section>
+
+<!-- ========================================
+         SKILLS
+    ========================================= -->
+
+    <section class="skills">
+
+      <div class="section-heading">
+        <p>Skills & Capabilities</p>
+        <p>Design · Technology · Strategy</p>
+      </div>
+
+
+      <div class="skills-grid">
+
+        <!-- DESIGN -->
+
+        <div class="skills-column">
+
+          <h2>Design</h2>
+
+          <ul>
+            <li>Typography</li>
+            <li>Layout</li>
+            <li>UX/UI</li>
+            <li>Branding</li>
+            <li>Motion</li>
+          </ul>
+
+        </div>
+
+
+        <!-- TECHNICAL -->
+
+        <div class="skills-column">
+
+          <h2>Technical</h2>
+
+          <ul>
+            <li>AI Workflows</li>
+            <li>Automation</li>
+            <li>Scripting</li>
+            <li>Figma</li>
+            <li>Adobe Suite</li>
+          </ul>
+
+        </div>
+
+
+        <!-- STRATEGIC -->
+
+        <div class="skills-column">
+
+          <h2>Strategic</h2>
+
+          <ul>
+            <li>Systems Thinking</li>
+            <li>Process Optimization</li>
+            <li>Problem Solving</li>
+            <li>Communication</li>
+            <li>Training</li>
+          </ul>
+
+        </div>
 
       </div>
 
     </section>
-
-
-
+    
     <!-- ========================================
-         NEXT PROJECT
+         ABOUT
     ========================================= -->
 
-    <a
-      class="next-project"
-      href="project-02.html"
-    >
+    <section class="about" id="about">
 
-      <p class="next-project-label">
-        Next project
+      <p class="section-label">
+        About
       </p>
 
-      <h2>
 
-        Project Two
+      <div class="about-text">
 
-        <span>
-          →
-        </span>
+        <p>
+          I’m a multidisciplinary designer interested in how visual
+          communication, systems and technology shape the way people
+          interact with information.
+        </p>
 
-      </h2>
+        <p>
+          My practice spans identity, typography, motion, digital
+          experiences, design systems and creative coding.
+        </p>
 
-    </a>
+      </div>
 
+    </section>
 
   </main>
-
 
 
   <!-- ========================================
@@ -494,6 +487,7 @@
     <p>
       © 2026 Avery Mitchell
     </p>
+
 
     <div class="footer-links">
 
@@ -522,107 +516,113 @@
   </footer>
 
 
-
   <!-- ========================================
-       CASE STUDY INTERACTION
+       IMAGE COMPARISON SCRIPT
   ========================================= -->
 
   <script>
 
-    /* ========================================
-       STORY CARD SWITCHING
-    ========================================= */
+    document
+      .querySelectorAll(".image-compare")
+      .forEach(compare => {
 
-    const zones =
-      document.querySelectorAll(".media-zone");
-
-    const cards =
-      document.querySelectorAll(".story-card");
+        const slider =
+          compare.querySelector(".compare-slider");
 
 
-    function activateStory(name) {
+        slider.addEventListener("input", () => {
 
-      cards.forEach(card => {
+          compare.style.setProperty(
+            "--position",
+            slider.value + "%"
+          );
 
-        card.classList.toggle(
-          "is-active",
-          card.dataset.story === name
-        );
+        });
 
       });
 
-    }
+/* ========================================
+   CLARITY GRADIENT
+   Mouse + scroll reactive
+======================================== */
+
+const clarity = document.querySelector(".clarity");
+
+let mouseX = 50;
+let mouseY = 50;
+let scrollAmount = 0;
+
+function updateClarityGradient() {
+
+  /*
+    Mouse creates subtle horizontal
+    and vertical movement.
+  */
+
+  const gradientX =
+    35 + (mouseX * 0.3);
+
+  /*
+    Scroll shifts the gradient vertically.
+
+    % 100 means it continues cycling
+    as the page gets longer.
+  */
+
+  const gradientY =
+    35 +
+    (mouseY * 0.2) +
+    (scrollAmount * 0.03);
+
+  clarity.style.setProperty(
+    "--mouse-x",
+    `${gradientX}%`
+  );
+
+  clarity.style.setProperty(
+    "--mouse-y",
+    `${gradientY % 100}%`
+  );
+
+}
 
 
+/* MOUSE */
 
-    /*
-      Each media zone is watched as it
-      crosses a narrow horizontal line
-      around 40% down the viewport.
-    */
+document.addEventListener(
+  "mousemove",
+  event => {
 
-    const storyObserver =
-      new IntersectionObserver(
+    mouseX =
+      (event.clientX / window.innerWidth) * 100;
 
-        entries => {
+    mouseY =
+      (event.clientY / window.innerHeight) * 100;
 
-          entries.forEach(entry => {
+    updateClarityGradient();
 
-            if (entry.isIntersecting) {
-
-              activateStory(
-                entry.target.dataset.zone
-              );
-
-            }
-
-          });
-
-        },
-
-        {
-          root: null,
-
-          rootMargin:
-            "-40% 0px -59% 0px",
-
-          threshold: 0
-        }
-
-      );
+  }
+);
 
 
-    zones.forEach(zone => {
+/* SCROLL */
 
-      storyObserver.observe(zone);
+window.addEventListener(
+  "scroll",
+  () => {
 
-    });
+    scrollAmount = window.scrollY;
 
+    updateClarityGradient();
 
-
-    /* ========================================
-       PAGE THEME
-    ========================================= */
-
-    function updateCaseTheme() {
-
-      document.body.classList.toggle(
-        "case-dark",
-        window.scrollY > 8
-      );
-
-    }
+  },
+  { passive: true }
+);
 
 
-    window.addEventListener(
-      "scroll",
-      updateCaseTheme,
-      { passive: true }
-    );
+/* INITIAL POSITION */
 
-
-    updateCaseTheme();
-
+updateClarityGradient();
   </script>
 
 
