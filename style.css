@@ -376,9 +376,7 @@ footer {
 }
 
 .compare-overlay .compare-image {
-  /* Keeps both images exactly aligned */
-  width: 100vw;
-  max-width: none;
+  width: calc(100% / (var(--position) / 100%));
 }
 
 /* Invisible interactive slider */
