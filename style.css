@@ -341,5 +341,102 @@ footer {
   footer {
     gap: 30px;
   }
+/* ------------------------------
+   IMAGE COMPARISON
+-------------------------------- */
 
+.image-compare {
+  --position: 50%;
+
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+}
+
+.compare-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* Image sitting on top */
+
+.compare-overlay {
+  position: absolute;
+  inset: 0;
+
+  width: var(--position);
+  overflow: hidden;
+}
+
+.compare-overlay .compare-image {
+  /* Keeps both images exactly aligned */
+  width: 100vw;
+  max-width: none;
+}
+
+/* Invisible interactive slider */
+
+.compare-slider {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  cursor: ew-resize;
+
+  z-index: 3;
+}
+
+/* Vertical dividing line */
+
+.compare-divider {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: var(--position);
+
+  width: 2px;
+
+  background: white;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Circular drag handle */
+
+.compare-handle {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: white;
+  color: #111;
+
+  font-size: 20px;
+}
 }
