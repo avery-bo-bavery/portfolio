@@ -1,6 +1,6 @@
-/* ------------------------------
+/* ==========================================
    RESET
--------------------------------- */
+========================================== */
 
 * {
   box-sizing: border-box;
@@ -15,7 +15,8 @@ html {
 body {
   background: #f5f5f2;
   color: #111;
-  font-family: Inter, Helvetica, sans-serif;
+
+  font-family: Inter, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.4;
 }
@@ -31,9 +32,9 @@ a {
 }
 
 
-/* ------------------------------
+/* ==========================================
    HEADER
--------------------------------- */
+========================================== */
 
 .site-header {
   display: flex;
@@ -45,7 +46,7 @@ a {
 
 .name {
   font-weight: 600;
-  color: #FF0000;
+  color: #ff0000;
 }
 
 nav {
@@ -53,14 +54,18 @@ nav {
   gap: 24px;
 }
 
+nav a {
+  transition: opacity 0.2s ease;
+}
+
 nav a:hover {
   opacity: 0.5;
 }
 
 
-/* ------------------------------
+/* ==========================================
    INTRO
--------------------------------- */
+========================================== */
 
 .intro {
   min-height: 75vh;
@@ -89,10 +94,57 @@ nav a:hover {
   font-size: 1.2rem;
 }
 
+.clarity {
+  font-weight: 800;
+  letter-spacing: -0.005em;
 
-/* ------------------------------
+  /* Mouse position */
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+
+  /* Pastel gradient */
+  background:
+    radial-gradient(
+      circle at var(--mouse-x) var(--mouse-y),
+      #fff1a8 0%,
+      #ffb7d5 28%,
+      #c8b6ff 55%,
+      #9ee7ff 78%,
+      #b8f2d0 100%
+    );
+
+  /* Put gradient inside the letters */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  /* Makes movement feel soft */
+  background-size: 180% 180%;
+}
+
+/* ==========================================
+   GENERAL SECTION HEADING
+========================================== */
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+
+  border-top: 1px solid #111;
+
+  padding-top: 10px;
+  margin-bottom: 50px;
+
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+
+/* ==========================================
    SKILLS
--------------------------------- */
+========================================== */
 
 .skills {
   padding: 40px 24px 120px;
@@ -101,6 +153,7 @@ nav a:hover {
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   border-top: 1px solid #111;
 }
 
@@ -110,6 +163,7 @@ nav a:hover {
 
 .skills-column + .skills-column {
   border-left: 1px solid #111;
+
   padding-left: 20px;
 }
 
@@ -118,6 +172,7 @@ nav a:hover {
 
   font-size: 0.8rem;
   font-weight: 500;
+
   text-transform: uppercase;
   letter-spacing: 0.04em;
 
@@ -138,57 +193,13 @@ nav a:hover {
 }
 
 
-/* SKILLS — MOBILE */
-
-@media (max-width: 700px) {
-
-  .skills {
-    padding-bottom: 80px;
-  }
-
-  .skills-grid {
-    display: block;
-  }
-
-  .skills-column {
-    padding: 20px 0 40px;
-  }
-
-  .skills-column + .skills-column {
-    border-left: 0;
-    border-top: 1px solid #111;
-    padding-left: 0;
-  }
-
-  .skills-column h2 {
-    margin-bottom: 20px;
-  }
-
-}
-
-/* ------------------------------
+/* ==========================================
    WORK
--------------------------------- */
+========================================== */
 
 .work {
   padding: 80px 24px;
 }
-
-.section-heading {
-  display: flex;
-  justify-content: space-between;
-
-  border-top: 1px solid #111;
-
-  padding-top: 10px;
-  margin-bottom: 50px;
-
-  font-size: 0.85rem;
-  text-transform: uppercase;
-}
-
-
-/* PROJECT */
 
 .project {
   display: block;
@@ -196,23 +207,211 @@ nav a:hover {
   margin-bottom: 100px;
 }
 
-.project-image {
+
+/* ==========================================
+   IMAGE COMPARISON
+========================================== */
+
+.image-compare {
+  --position: 50%;
+
+  position: relative;
+
+  width: 100%;
+
+  /*
+    Wide + shallow project thumbnail.
+    Change this if you want all project
+    thumbnails taller or shorter.
+  */
+  aspect-ratio: 12 / 5;
+
   overflow: hidden;
 
   background: #ddd;
+
+  /* Prevents accidental text selection
+     while dragging the slider */
+  user-select: none;
+  -webkit-user-select: none;
+
+  /* Makes dragging behave properly on mobile */
+  touch-action: pan-y;
 }
 
-.project-image img {
-  aspect-ratio: 16 / 10;
+
+/* ==========================================
+   BEFORE + AFTER LAYERS
+========================================== */
+
+/*
+  BEFORE occupies everything to the
+  LEFT of the slider.
+*/
+
+.compare-before {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  clip-path: inset(
+    0
+    calc(100% - var(--position))
+    0
+    0
+  );
+}
+
+
+/*
+  AFTER occupies everything to the
+  RIGHT of the slider.
+*/
+
+.compare-after {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  clip-path: inset(
+    0
+    0
+    0
+    var(--position)
+  );
+}
+
+
+/* ==========================================
+   COMPARISON IMAGES
+========================================== */
+
+.compare-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
 
   object-fit: cover;
 
-  transition: transform 0.5s ease;
+  pointer-events: none;
 }
 
-.project:hover .project-image img {
-  transform: scale(1.015);
+
+/* ==========================================
+   BEFORE / AFTER LABELS
+========================================== */
+
+.compare-label {
+  position: absolute;
+  top: 16px;
+
+  color: #fff;
+
+  /*
+    Same size as Project One,
+    Project Two, etc.
+  */
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1;
+
+  z-index: 2;
+
+  pointer-events: none;
 }
+
+.compare-label-left {
+  left: 16px;
+}
+
+.compare-label-right {
+  right: 16px;
+}
+
+
+/* ==========================================
+   SLIDER DIVIDER
+========================================== */
+
+.compare-divider {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: var(--position);
+
+  width: 2px;
+
+  background: #fff;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+
+  z-index: 5;
+}
+
+
+/* ==========================================
+   SLIDER HANDLE
+========================================== */
+
+.compare-handle {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #fff;
+  color: #111;
+
+  font-size: 18px;
+  line-height: 1;
+
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==========================================
+   INVISIBLE RANGE INPUT
+========================================== */
+
+.compare-slider {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+
+  opacity: 0;
+
+  cursor: ew-resize;
+
+  z-index: 10;
+}
+
+
+/* ==========================================
+   PROJECT INFORMATION
+========================================== */
 
 .project-info {
   display: flex;
@@ -227,15 +426,24 @@ nav a:hover {
   font-weight: 500;
 }
 
+.subhead {
+  font-weight:300;
+}
+
 .project-info p {
   font-size: 0.9rem;
+
   opacity: 0.65;
 }
 
+.project-info:hover h2 {
+  opacity: 0.5;
+}
 
-/* ------------------------------
+
+/* ==========================================
    ABOUT
--------------------------------- */
+========================================== */
 
 .about {
   display: grid;
@@ -248,6 +456,7 @@ nav a:hover {
 
 .section-label {
   font-size: 0.85rem;
+
   text-transform: uppercase;
 }
 
@@ -264,9 +473,9 @@ nav a:hover {
 }
 
 
-/* ------------------------------
+/* ==========================================
    FOOTER
--------------------------------- */
+========================================== */
 
 footer {
   display: flex;
@@ -281,7 +490,12 @@ footer {
 
 .footer-links {
   display: flex;
+
   gap: 20px;
+}
+
+.footer-links a {
+  transition: opacity 0.2s ease;
 }
 
 .footer-links a:hover {
@@ -289,28 +503,42 @@ footer {
 }
 
 
-/* ------------------------------
+/* ==========================================
    MOBILE
--------------------------------- */
+========================================== */
 
 @media (max-width: 700px) {
 
+  /* HEADER */
+
   .site-header {
     align-items: flex-start;
+
+    padding: 16px;
   }
 
   nav {
     gap: 12px;
   }
 
+
+  /* INTRO */
+
   .intro {
     min-height: 70vh;
 
-    padding-top: 60px;
+    padding:
+      60px
+      16px
+      40px;
   }
 
   .intro h1 {
-    font-size: clamp(2.8rem, 13vw, 5rem);
+    font-size: clamp(
+      2.8rem,
+      13vw,
+      5rem
+    );
   }
 
   .intro-text {
@@ -318,9 +546,99 @@ footer {
     margin-top: 60px;
   }
 
+
+  /* SECTION HEADINGS */
+
+  .section-heading {
+    margin-bottom: 32px;
+  }
+
+
+  /* SKILLS */
+
+  .skills {
+    padding:
+      40px
+      16px
+      80px;
+  }
+
+  .skills-grid {
+    display: block;
+  }
+
+  .skills-column {
+    padding:
+      20px
+      0
+      40px;
+  }
+
+  .skills-column + .skills-column {
+    border-left: 0;
+    border-top: 1px solid #111;
+
+    padding-left: 0;
+  }
+
+  .skills-column h2 {
+    margin-bottom: 20px;
+  }
+
+
+  /* WORK */
+
+  .work {
+    padding:
+      60px
+      16px;
+  }
+
   .project {
     margin-bottom: 60px;
   }
+
+
+  /*
+    Taller image on mobile.
+
+    Desktop = 12:5
+    Mobile  = 3:2
+  */
+
+  .image-compare {
+    aspect-ratio: 3 / 2;
+  }
+
+
+  /* BEFORE / AFTER LABELS */
+
+  .compare-label {
+    top: 12px;
+
+    font-size: 1.1rem;
+  }
+
+  .compare-label-left {
+    left: 12px;
+  }
+
+  .compare-label-right {
+    right: 12px;
+  }
+
+
+  /* SLIDER HANDLE */
+
+  .compare-handle {
+    width: 38px;
+    height: 38px;
+
+    font-size: 16px;
+  }
+
+
+  /* PROJECT INFO */
 
   .project-info {
     display: block;
@@ -330,121 +648,31 @@ footer {
     margin-top: 4px;
   }
 
+
+  /* ABOUT */
+
   .about {
     display: block;
+
+    padding:
+      80px
+      16px
+      100px;
   }
 
   .section-label {
     margin-bottom: 50px;
   }
 
+
+  /* FOOTER */
+
   footer {
     gap: 30px;
+
+    padding:
+      20px
+      16px;
   }
-}
 
-/* ------------------------------
-   IMAGE COMPARISON
--------------------------------- */
-
-.image-compare {
-  --position: 50%;
-
-  position: relative;
-  width: calc(100% - 48px);
-  margin: 0 24px 100px;
-
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-
-  background: #ddd;
-}
-
-/* Both images fill exactly the same frame */
-
-.compare-image {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-}
-
-/* Top image gets progressively revealed */
-
-.compare-overlay {
-  position: absolute;
-  inset: 0;
-
-  clip-path: inset(
-    0
-    calc(100% - var(--position))
-    0
-    0
-  );
-}
-
-/* Invisible slider covers the entire image */
-
-.compare-slider {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-  margin: 0;
-
-  opacity: 0;
-
-  cursor: ew-resize;
-  z-index: 10;
-}
-
-/* White dividing line */
-
-.compare-divider {
-  position: absolute;
-
-  top: 0;
-  bottom: 0;
-  left: var(--position);
-
-  width: 2px;
-
-  background: #fff;
-
-  transform: translateX(-50%);
-
-  pointer-events: none;
-  z-index: 5;
-}
-
-/* Drag handle */
-
-.compare-handle {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  width: 48px;
-  height: 48px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transform: translate(-50%, -50%);
-
-  border-radius: 50%;
-
-  background: #fff;
-  color: #111;
-
-  font-size: 20px;
-  line-height: 1;
-
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
